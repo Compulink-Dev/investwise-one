@@ -68,9 +68,9 @@ export default function ModernHomepage() {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900">
+    <div className="min-h-screen w-full bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 md:pb-32 px-4 md:px-6">
+      <section className="pt-24 pb-16 md:pt-32 md:pb-32 px-4 md:px-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col md:flex-row items-center">
             <motion.div

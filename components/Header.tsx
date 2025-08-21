@@ -138,7 +138,7 @@ export default function Header() {
       <div className="flex items-center justify-between px-4 py-2">
         {/* Logo */}
         <div className="flex items-center gap-2 ">
-          <Image src={"/logo.webp"} alt="logo" width={100} height={100} />
+          <Image src={"/logo.webp"} alt="logo" width={150} height={150} />
         </div>
 
         {/* Desktop Navigation */}
@@ -147,7 +147,7 @@ export default function Header() {
             <NavigationMenuList>
               {menuItems.map((item, index) => (
                 <NavigationMenuItem key={index}>
-                  <NavigationMenuTrigger className="flex items-center gap-1 text-sm font-medium h-9 bg-transparent data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
+                  <NavigationMenuTrigger className="flex items-center gap-1 text-xs font-medium h-9 bg-transparent data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
                     <span className="hidden lg:inline-block">{item.icon}</span>
                     {item.title}
                   </NavigationMenuTrigger>
@@ -200,7 +200,7 @@ export default function Header() {
             <nav className="flex flex-col gap-4">
               {menuItems.map((item, index) => (
                 <div key={index} className="flex flex-col gap-2">
-                  <div className="flex items-center font-medium py-2">
+                  <div className="flex items-center text-sm md:text-md font-medium py-2">
                     <span className="mr-2">{item.icon}</span>
                     {item.title}
                   </div>
@@ -209,7 +209,7 @@ export default function Header() {
                       <a
                         key={subIndex}
                         href={subItem.href}
-                        className="text-sm text-muted-foreground hover:text-foreground py-1"
+                        className="text-xs md:text-sm text-muted-foreground hover:text-foreground py-1"
                         onClick={() => setIsOpen(false)}
                       >
                         {subItem.title}

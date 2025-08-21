@@ -3,13 +3,10 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import {
-  Search,
   BookOpen,
   Landmark,
   Boxes,
-  BadgeDollarSign,
   Factory,
   Layers,
   Building2,
@@ -152,7 +149,7 @@ const PRODUCTS: Product[] = [
 const fadeIn = {
   initial: { opacity: 0, y: 10 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.25, ease: "easeOut" },
+  transition: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }, // Fixed ease property
 };
 
 function HighlightTag({ label }: { label: string }) {
@@ -212,7 +209,12 @@ export default function InvestProductsPage() {
         {/* Hero */}
         <section className="container mx-auto py-8">
           <div className="grid gap-6 md:grid-cols-[1fr_380px] items-start">
-            <motion.div {...fadeIn} className="space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+              className="space-y-4"
+            >
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-yellow-700 to-slate-800 bg-clip-text text-transparent">
                 Explore Investment Products
               </h1>
@@ -256,7 +258,12 @@ export default function InvestProductsPage() {
             </motion.div>
 
             {/* Sticky quick nav */}
-            <motion.aside {...fadeIn} className="md:sticky md:top-24">
+            <motion.aside
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+              className="md:sticky md:top-24"
+            >
               <Card className="rounded-2xl shadow-sm border-yellow-100 bg-yellow-50">
                 <CardHeader>
                   <CardTitle className="text-base text-yellow-900">
@@ -301,8 +308,13 @@ export default function InvestProductsPage() {
                 <motion.div
                   key={p.id}
                   id={p.id}
-                  {...fadeIn}
-                  transition={{ ...fadeIn.transition, delay: idx * 0.03 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.25,
+                    ease: [0.25, 0.1, 0.25, 1],
+                    delay: idx * 0.03,
+                  }}
                 >
                   <Card className="rounded-2xl border-slate-200 hover:border-yellow-200 transition-colors shadow-sm hover:shadow-md">
                     <CardHeader className="flex flex-row items-start gap-4 bg-slate-50 rounded-t-2xl">
@@ -391,7 +403,11 @@ export default function InvestProductsPage() {
 
             {/* Sidebar Enhancements */}
             <div className="space-y-6">
-              <motion.div {...fadeIn}>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+              >
                 <Card className="rounded-2xl border-yellow-100">
                   <CardHeader className="bg-yellow-50 rounded-t-2xl">
                     <CardTitle className="text-base text-yellow-900">
@@ -486,7 +502,11 @@ export default function InvestProductsPage() {
                 </Card>
               </motion.div>
 
-              <motion.div {...fadeIn}>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+              >
                 <Card className="rounded-2xl border-dashed border-yellow-200 bg-yellow-50/50">
                   <CardHeader>
                     <CardTitle className="text-base flex items-center gap-2 text-yellow-900">

@@ -135,14 +135,14 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex items-center justify-between">
+      <div className="flex items-center justify-between px-4 py-2">
         {/* Logo */}
-        <div className="flex items-center gap-2 p-6">
-          <Image src={"/logo.webp"} alt="logo" width={150} height={150} />
+        <div className="flex items-center gap-2 ">
+          <Image src={"/logo.webp"} alt="logo" width={100} height={100} />
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-6">
           <NavigationMenu>
             <NavigationMenuList>
               {menuItems.map((item, index) => (
@@ -187,13 +187,16 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild className="md:hidden">
+          <SheetTrigger asChild className="lg:hidden">
             <Button variant="ghost" size="icon">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+          <SheetContent
+            side="right"
+            className="w-[200px] sm:w-[300px] p-4 overflow-auto"
+          >
             <nav className="flex flex-col gap-4">
               {menuItems.map((item, index) => (
                 <div key={index} className="flex flex-col gap-2">

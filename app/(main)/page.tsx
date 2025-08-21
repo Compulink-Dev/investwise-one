@@ -18,6 +18,7 @@ import {
   MapPin,
 } from "lucide-react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default function ModernHomepage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,10 +68,10 @@ export default function ModernHomepage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900">
+    <div className="min-h-screen w-full bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900">
       {/* Hero Section */}
       <section className="pt-32 pb-20 md:pb-32 px-4 md:px-6">
-        <div className="container mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col md:flex-row items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -78,21 +79,21 @@ export default function ModernHomepage() {
               transition={{ duration: 0.5 }}
               className="md:w-1/2 mb-10 md:mb-0"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold leading-tight mb-6">
                 Your Trusted Investment Partner in{" "}
                 <span className="text-yellow-600">Zimbabwe</span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-600 mb-8">
+              <p className="text-sm md:text-lg text-slate-600 mb-8">
                 Expert financial solutions tailored to help you grow and protect
                 your wealth in the Zimbabwean market.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <button className="bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-yellow-700 transition-colors flex items-center justify-center">
+                <Button className="bg-yellow-600 text-white rounded-lg font-medium hover:bg-yellow-700 transition-colors flex items-center justify-center">
                   Open An Account <ArrowRight className="ml-2 h-5 w-5" />
-                </button>
-                <button className="border border-slate-300 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition-colors flex items-center justify-center">
+                </Button>
+                <Button className="border border-slate-300 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition-colors flex items-center justify-center">
                   <Play className="mr-2 h-5 w-5" /> Learn More
-                </button>
+                </Button>
               </div>
             </motion.div>
 
@@ -131,12 +132,12 @@ export default function ModernHomepage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <button className="bg-yellow-600 text-white py-2 rounded-lg font-medium text-sm hover:bg-yellow-700 transition-colors">
+                  <Button className="bg-yellow-600 text-white py-2 rounded-lg font-medium text-sm hover:bg-yellow-700 transition-colors">
                     View Stocks
-                  </button>
-                  <button className="border border-slate-300 py-2 rounded-lg font-medium text-sm hover:bg-slate-50 transition-colors">
+                  </Button>
+                  <Button className="border border-slate-300 py-2 rounded-lg font-medium text-sm hover:bg-slate-50 transition-colors">
                     Market Analysis
-                  </button>
+                  </Button>
                 </div>
               </div>
 
@@ -224,10 +225,10 @@ export default function ModernHomepage() {
               viewport={{ once: true }}
               className="md:w-1/2 mb-10 md:mb-0"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
                 Market Research & Insights
               </h2>
-              <p className="text-slate-600 mb-6">
+              <p className="text-slate-600 mb-6 text-xs lg:text-sm">
                 Stay informed with our expert analysis of the Zimbabwean market.
                 Our research team provides timely insights to help you make
                 informed investment decisions.
@@ -247,9 +248,9 @@ export default function ModernHomepage() {
                   </li>
                 ))}
               </ul>
-              <button className="bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-yellow-700 transition-colors">
+              <Button className="bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-yellow-700 transition-colors">
                 Access Research Portal
-              </button>
+              </Button>
             </motion.div>
 
             <motion.div
@@ -275,9 +276,9 @@ export default function ModernHomepage() {
                     Published: {new Date().toLocaleDateString()}
                   </div>
                 </div>
-                <button className="bg-white text-yellow-700 px-4 py-2 rounded-lg font-medium hover:bg-yellow-50 transition-colors">
+                <Button className="bg-white text-yellow-700 px-4 py-2 rounded-lg font-medium hover:bg-yellow-50 transition-colors">
                   Download Report
-                </button>
+                </Button>
               </div>
             </motion.div>
           </div>
@@ -301,12 +302,12 @@ export default function ModernHomepage() {
               investments in Zimbabwe.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="bg-white text-yellow-700 px-6 py-3 rounded-lg font-medium hover:bg-yellow-50 transition-colors">
+              <Button className="bg-white text-yellow-700 px-6 py-3 rounded-lg font-medium hover:bg-yellow-50 transition-colors">
                 Open An Account
-              </button>
-              <button className="bg-transparent border border-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors">
+              </Button>
+              <Button className="bg-transparent border border-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors">
                 Contact Us
-              </button>
+              </Button>
             </div>
           </motion.div>
         </div>

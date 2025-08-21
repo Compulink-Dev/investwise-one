@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
   Menu,
@@ -18,13 +17,16 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import SearchInput from "./SearchInput";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [q, setQ] = useState(""); // 🔹 search query state
+  const [loading, setLoading] = useState(false); // 🔹 loading state
 
   // Menu data structure
   const menuItems = [
@@ -126,32 +128,26 @@ export default function Header() {
           title: "Capital Market Basic Knowledge Quiz",
           href: "/capital-market-basic-knowledge-quiz",
         },
-        {
-          title: "Spot and Share",
-          href: "/spot-and-share",
-        },
+        { title: "Spot and Share", href: "/spot-and-share" },
       ],
     },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="bg-green-600 h-8 w-8 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">IW</span>
-          </div>
-          <span className="font-bold text-xl">InvestWise Zimbabwe</span>
+        <div className="flex items-center gap-2 p-6">
+          <Image src={"/logo.webp"} alt="logo" width={150} height={150} />
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex">
+        <div className="hidden md:flex items-center gap-6">
           <NavigationMenu>
             <NavigationMenuList>
               {menuItems.map((item, index) => (
                 <NavigationMenuItem key={index}>
-                  <NavigationMenuTrigger className="flex items-center gap-1 text-sm font-medium h-9 data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
+                  <NavigationMenuTrigger className="flex items-center gap-1 text-sm font-medium h-9 bg-transparent data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
                     <span className="hidden lg:inline-block">{item.icon}</span>
                     {item.title}
                   </NavigationMenuTrigger>
@@ -162,7 +158,7 @@ export default function Header() {
                           key={subIndex}
                           href={subItem.href}
                           title={subItem.title}
-                        />
+                        ></ListItem>
                       ))}
                     </ul>
                   </NavigationMenuContent>
@@ -170,6 +166,23 @@ export default function Header() {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
+
+          {/* Search box */}
+          <div className="w-80">
+            <SearchInput
+              value={q}
+              onChange={setQ}
+              onSearch={(v) => {
+                setLoading(true);
+                console.log("search:", v);
+                setTimeout(() => setLoading(false), 600);
+              }}
+              loading={loading}
+              placeholder="Search docs, people, anything…"
+              debounce={300}
+              size="md"
+            />
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -212,7 +225,7 @@ export default function Header() {
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a"> & { title: string }
+  React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
   return (
     <li>
@@ -226,11 +239,9 @@ const ListItem = React.forwardRef<
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          {children && (
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-              {children}
-            </p>
-          )}
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
         </a>
       </NavigationMenuLink>
     </li>

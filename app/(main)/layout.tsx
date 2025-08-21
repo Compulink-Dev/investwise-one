@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import React from "react";
 
@@ -8,6 +9,7 @@ function MainLayout({ children }: { children: React.ReactNode }) {
         <Header />
         {children}
       </main>
+      <Footer />
     </div>
   );
 }

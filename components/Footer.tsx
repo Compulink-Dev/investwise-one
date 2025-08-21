@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 function Footer() {
@@ -8,12 +9,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="bg-yellow-600 h-10 w-10 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">IW</span>
-              </div>
-              <span className="font-bold text-white text-xl">
-                InvestWise Zimbabwe
-              </span>
+              <Image src={"/logo.webp"} alt="logo" width={150} height={150} />
             </div>
             <p className="mb-4 ">
               Your trusted partner for investment solutions in Zimbabwe.

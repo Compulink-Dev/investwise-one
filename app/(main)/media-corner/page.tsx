@@ -41,21 +41,35 @@ export default function MediaCenter() {
   const categories = [
     { id: "all", label: "All Media", icon: <Newspaper className="h-4 w-4" /> },
     {
-      id: "press",
-      label: "Press Releases",
+      id: "videos",
+      label: "Video Gallery",
+      icon: <Video className="h-4 w-4" />,
+    },
+    {
+      id: "photos",
+      label: "Photo Gallery",
+      icon: <Image className="h-4 w-4" />,
+    },
+    {
+      id: "procurement",
+      label: "Procurement Publications",
       icon: <FileText className="h-4 w-4" />,
     },
     {
+      id: "surveys",
+      label: "Surveys",
+      icon: <BarChart3 className="h-4 w-4" />,
+    },
+    { id: "speeches", label: "Speeches", icon: <Mic className="h-4 w-4" /> },
+    {
       id: "news",
-      label: "News Articles",
+      label: "News & Events",
       icon: <Newspaper className="h-4 w-4" />,
     },
-    { id: "images", label: "Images", icon: <Image className="h-4 w-4" /> },
-    { id: "videos", label: "Videos", icon: <Video className="h-4 w-4" /> },
     {
-      id: "reports",
-      label: "Reports",
-      icon: <BarChart3 className="h-4 w-4" />,
+      id: "calendar",
+      label: "Board Calendar",
+      icon: <Calendar className="h-4 w-4" />,
     },
   ];
 
@@ -63,79 +77,79 @@ export default function MediaCenter() {
   const mediaItems = [
     {
       id: 1,
-      title: "Q4 2023 Financial Results Announcement",
-      type: "press",
-      date: "2024-01-25",
+      title: "2024 Annual Procurement Plan",
+      type: "procurement",
+      date: "2024-02-01",
       description:
-        "InvestWise Zimbabwe announces strong financial results for the fourth quarter of 2023, with a 15% increase in assets under management.",
+        "Download the official procurement plan and tender opportunities for 2024.",
       image: "/placeholder-image.jpg",
-      downloads: [
-        { name: "Full Report (PDF)", url: "#", size: "2.4MB" },
-        { name: "Press Release", url: "#", size: "1.2MB" },
-      ],
-      tags: ["Financials", "Earnings", "Quarterly Results"],
+      downloads: [{ name: "Full Plan (PDF)", url: "#", size: "3.2MB" }],
+      tags: ["Procurement", "Tenders"],
     },
     {
       id: 2,
-      title: "New Investment Products Launch",
-      type: "news",
-      date: "2024-01-18",
+      title: "Survey: Financial Literacy in Zimbabwe",
+      type: "surveys",
+      date: "2024-01-20",
       description:
-        "InvestWise introduces three new investment products designed specifically for the Zimbabwean market, offering diversified opportunities for investors.",
+        "Participate in our financial literacy survey and help shape future initiatives.",
       image: "/placeholder-image.jpg",
-      downloads: [{ name: "Product Brochure", url: "#", size: "3.1MB" }],
-      tags: ["Products", "Innovation", "Market Expansion"],
+      externalLink: "https://example.com/survey-link",
+      tags: ["Survey", "Research"],
     },
     {
       id: 3,
-      title: "Market Analysis: Zimbabwe Economic Outlook 2024",
-      type: "reports",
-      date: "2024-01-10",
+      title: "Chairperson’s Speech – 2023 AGM",
+      type: "speeches",
+      date: "2023-12-15",
       description:
-        "Comprehensive analysis of Zimbabwe's economic prospects for 2024, with sector-specific insights and investment recommendations.",
+        "Full speech delivered by the Board Chairperson during the Annual General Meeting.",
       image: "/placeholder-image.jpg",
-      downloads: [
-        { name: "Full Report", url: "#", size: "5.7MB" },
-        { name: "Executive Summary", url: "#", size: "1.8MB" },
-      ],
-      tags: ["Research", "Economic Outlook", "Market Analysis"],
+      downloads: [{ name: "Speech Transcript", url: "#", size: "1.1MB" }],
+      tags: ["Speech", "AGM"],
     },
     {
       id: 4,
-      title: "CEO Interview on Business Focus",
-      type: "videos",
-      date: "2024-01-05",
+      title: "Board Calendar – 2024",
+      type: "calendar",
+      date: "2023-12-10",
       description:
-        "Our CEO discusses investment opportunities in Zimbabwe and the company's growth strategy in an exclusive television interview.",
+        "Schedule of Board meetings and strategic sessions for 2024.",
       image: "/placeholder-image.jpg",
-      videoUrl: "#",
-      duration: "15:42",
-      tags: ["Leadership", "Interview", "Strategy"],
+      downloads: [{ name: "Board Calendar (PDF)", url: "#", size: "800KB" }],
+      tags: ["Board", "Calendar"],
     },
     {
       id: 5,
-      title: "Corporate Responsibility Initiative Launch",
-      type: "press",
-      date: "2023-12-15",
+      title: "Highlights from Women in Finance Conference",
+      type: "news",
+      date: "2024-01-05",
       description:
-        "InvestWise launches a new financial literacy program aimed at empowering youth in underserved communities across Zimbabwe.",
+        "Event recap and key takeaways from the annual Women in Finance conference.",
       image: "/placeholder-image.jpg",
-      downloads: [
-        { name: "Press Release", url: "#", size: "1.5MB" },
-        { name: "Program Overview", url: "#", size: "2.2MB" },
-      ],
-      tags: ["CSR", "Education", "Community"],
+      tags: ["Event", "Conference"],
     },
     {
       id: 6,
-      title: "Company Headquarters Gallery",
-      type: "images",
-      date: "2023-12-10",
+      title: "Launch of Investor Education Campaign",
+      type: "videos",
+      date: "2024-01-03",
       description:
-        "High-resolution images of our new headquarters in Harare, featuring state-of-the-art facilities and sustainable design elements.",
+        "Watch the highlights of our nationwide financial literacy campaign launch.",
       image: "/placeholder-image.jpg",
-      downloads: [{ name: "Image Pack (ZIP)", url: "#", size: "18.3MB" }],
-      tags: ["Facilities", "Corporate", "Architecture"],
+      videoUrl: "#",
+      duration: "12:40",
+      tags: ["Video", "Education"],
+    },
+    {
+      id: 7,
+      title: "Corporate Headquarters Photo Collection",
+      type: "photos",
+      date: "2023-12-22",
+      description: "High-resolution images of our headquarters and facilities.",
+      image: "/placeholder-image.jpg",
+      downloads: [{ name: "Image Pack (ZIP)", url: "#", size: "20MB" }],
+      tags: ["Photos", "Corporate"],
     },
   ];
 
@@ -199,9 +213,7 @@ export default function MediaCenter() {
 
             <div className="flex items-center gap-2">
               <Filter className="h-5 w-5 text-slate-600" />
-              <span className="text-sm font-medium text-slate-700">
-                Filter by:
-              </span>
+              <span className="text-sm font-medium text-slate-700"></span>
               <div className="flex flex-wrap gap-2">
                 {categories.map((category) => (
                   <Button

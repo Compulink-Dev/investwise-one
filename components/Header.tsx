@@ -37,6 +37,14 @@ export default function Header() {
       icon: <BookOpen className="h-4 w-4 mr-2" />,
       items: [
         {
+          title: "Investment Products",
+          href: "/investment-products",
+        },
+        {
+          title: "Media Center",
+          href: "/media-center",
+        },
+        {
           title: "Being Financially Literate",
           href: "/investment-basics/being-financially-literate",
         },

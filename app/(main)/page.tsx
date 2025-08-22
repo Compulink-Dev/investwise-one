@@ -328,9 +328,6 @@ export default function ModernHomepage() {
           </motion.div>
         </div>
       </section>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }
